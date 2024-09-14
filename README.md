@@ -24,4 +24,8 @@ This project is licensed under the MIT License. See the LICENSE file for details
 - **React.js:** For building the user interface.
 - **Hardhat:** For smart contract development.
 - **Alchemy:** For Ethereum node services.
-'''
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at dev.adnani26@gmail.com
