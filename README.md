@@ -1,6 +1,6 @@
 ## Overview
 
-This project is a decentralized application (DApp) that allows users to buy chai (tea) and view transaction details on the Ethereum blockchain. It consists of two main components:
+This project is a decentralized application (DApp) that enables users to "buy a chai" on the Ethereum blockchain, similar to the "Buy Me a Coffee" concept. Instead of coffee, users can purchase chai (tea) and view transaction details on the blockchain.
 
 - **Frontend:** `buy-chai-fe` – A React.js application for interacting with the blockchain.
 - **Smart Contract:** `buy-chai-sm` – A smart contract deployed using Hardhat and Alchemy.
