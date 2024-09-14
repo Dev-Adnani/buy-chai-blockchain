@@ -12,7 +12,6 @@ The frontend is built with React.js and provides a user interface for buying cha
 ### Installation
 
 1. **Clone the Repository:**  
-   `git clone https://github.com/your-username/buy-chai-fe.git`  
    `cd buy-chai-fe`
 
 2. **Install Dependencies:**  
@@ -21,14 +20,12 @@ The frontend is built with React.js and provides a user interface for buying cha
 3. **Configure Environment Variables:**  
    Create a `.env` file in the root directory with the following content:
    ```
-   REACT_APP_CONTRACT_ADDRESS=your_contract_address
-   REACT_APP_ALCHEMY_API_KEY=your_alchemy_api_key
+   SEPOLIAURL=your_contract_address
    ```
 
 4. **Start the Development Server:**  
-   `npm start`
+   `npm run dev`
 
-   The application will be available at [http://localhost:3000](http://localhost:3000).
 
 ## Backend Setup
 
@@ -37,7 +34,6 @@ The backend involves deploying a smart contract on the Ethereum blockchain. It u
 ### Installation
 
 1. **Clone the Repository:**  
-   `git clone https://github.com/your-username/buy-chai-sm.git`  
    `cd buy-chai-sm`
 
 2. **Install Dependencies:**  
@@ -46,13 +42,14 @@ The backend involves deploying a smart contract on the Ethereum blockchain. It u
 3. **Configure Alchemy:**  
    Create a `.env` file in the root directory with your Alchemy API key:
    ```
-   ALCHEMY_API_KEY=your_alchemy_api_key
+   SEPOLIAURL=your_sepolia_url
+   MMPKE=your_private_key
    ```
 
 4. **Deploy the Smart Contract:**  
    Run the following command to deploy the smart contract:
-   `npx hardhat run scripts/deploy.js --network your_network`
-   Replace `your_network` with the appropriate Ethereum network (e.g., rinkeby, mainnet).
+   `npx hardhat ignition deploy ./ignition/modules/Chai.ts --network your_network`
+   Replace `your_network` with the appropriate Ethereum network (e.g., sepolia, mainnet).
 
 ## Usage
 
