@@ -1,6 +1,5 @@
 import { Contract, ethers } from 'ethers';
 import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css';       
 
 // Props
@@ -19,7 +18,7 @@ export default function Buy({ contract, account }: BuyProps) {
     e.preventDefault(); // Prevent form from refreshing the page
 
     if (!name || !message || !amount) {
-      toast.error("Please fill out all fields, including the amount!");
+      alert("Please fill out all fields, including the amount!");
       return;
     }
 
@@ -34,21 +33,21 @@ export default function Buy({ contract, account }: BuyProps) {
       await transaction.wait(); // Wait for the transaction to complete
 
       setLoading(false);
-      toast.success("Chai bought successfully!");
+      alert("Chai bought successfully!");
     } catch (error: any) {
       console.error("Error buying chai:", error);
       setLoading(false);
 
       if (error?.code === 'INSUFFICIENT_FUNDS') {
-        toast.error("Insufficient funds. Please check your balance and try again.");
+        alert("Insufficient funds. Please add more Ether to your wallet.");
       } else if (error?.code === 'ACTION_REJECTED') {
-        toast.error("Transaction rejected. Please try again.");
+        alert("Transaction rejected. Please try again.");
       } else if (error?.reason) {
-        toast.error(`Transaction failed: ${error.reason}`);
+        alert(`Transaction failed: ${error.reason}`);
       } else if (error?.data?.message) {
-        toast.error(`Error: ${error.data.message}`);
+        alert(`Error: ${error.data.message}`);
       } else {
-        toast.error("Error buying chai. Please try again.");
+        alert("Error buying chai. Please try again.");
       }
     }
   };
@@ -100,7 +99,6 @@ export default function Buy({ contract, account }: BuyProps) {
             {loading ? 'Processing...' : 'Buy Chai'}
           </button>
         </form>
-        <ToastContainer />
       </div>
   );
 }

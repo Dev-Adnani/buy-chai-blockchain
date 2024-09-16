@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { abi } from "./contractJson/Chai.json";
 import Buy from "./components/Buy";
 import Memos from "./components/Memos";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
@@ -22,7 +21,7 @@ export default function App() {
         const { ethereum } = window as any;
 
         if (!ethereum) {
-          toast.error("Please install Wallet!", { toastId: 'installWallet' });
+          alert("Please install Wallet!");
           return;
         }
 
@@ -31,7 +30,7 @@ export default function App() {
         if (accounts.length > 0) {
           setAccount(accounts[0]); // Initially set the first account as selected
         } else {
-          toast.error("No accounts found", { toastId: 'noAccounts' });
+        alert("No accounts found");
           return;
         }
 
@@ -56,15 +55,15 @@ export default function App() {
             setAccount("Not Connected");
             setSigner(null); 
             setContract(null);
-            toast.warning("Disconnected from account", { toastId: 'accountDisconnected' });
+            alert("No accounts found");
           }
-          toast.warning("Account changed", { toastId: 'accountChanged' });
+          alert("Account changed");
         });
 
         console.log("Contract:", mContract);
       } catch (error) {
         console.error("Error:", error);
-        toast.error("An error occurred", { toastId: 'genericError' });
+        alert("Error in connecting to Wallet");
       }
     };
 
@@ -77,7 +76,6 @@ export default function App() {
       <Buy account={account} contract={contract}/>
       <div className="my-2" />
       <Memos contract={contract} />
-      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={true} />
     </div>
   );
 }
